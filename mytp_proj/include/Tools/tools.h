@@ -1,7 +1,10 @@
+#pragma once
 #include<string>
 #include<vector>
 #include"SETTINGS.h"
 #include"random.h"
+#include"Food.h"
+
 struct _Color
 {
 	int R;
@@ -27,6 +30,11 @@ class Cord
 		int Y;
 };
 
+/*
+int find_nearest_food(const Cord& self_pos, const std::vector<Food*>&, const int& vision_Radius);
 
-int find_nearest(const Cord& self_pos, const std::vector<Cord*>&, const int& vision_Radius);
+int find_nearest_herb(const Cord& self_pos, const std::vector<Herbivor*>&, const int vision_Radius)
+*/
 
+
+int Maxmin(const int& N, const int& M, const int& m);

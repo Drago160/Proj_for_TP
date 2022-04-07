@@ -1,4 +1,6 @@
 #include"tools.h"
+#include"sfml.h"
+#include"random.h"
 
 class Unit
 {
@@ -12,14 +14,17 @@ class Unit
 		void UpdateEnergy(const int& delta);
 		void SetReducePower();
 		void Die();
-		void Step();
+		void Step();	
+		~Unit();
 	protected:
 		int weight = WEIGHT;
 		int speed = SPEED;
-		_Color color = {100, 100, 100};
+		_Color color;
 		int energy = ENERGY;
 		Direction direction = {0, 0};
 		int reduce_power;
 		Cord position = {-100, -100};
-		int variability = 10;
+		int variability;
+	public:
+		sf::CircleShape* shape;
 };
