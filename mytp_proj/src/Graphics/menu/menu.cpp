@@ -16,11 +16,11 @@ int menu(RenderWindow & window)
 	Texture menuTexturePlay, menuTextureAbout, menuTextureExit, menuTextureRestart, aboutTexture, menuBackground; 
 
 	//подгружаем картинки для кнопок
-	menuTexturePlay.loadFromFile("../img/play.png");
-	menuTextureAbout.loadFromFile("../img/about.png");
-	menuTextureExit.loadFromFile("../img/exit.png");
-	menuTextureRestart.loadFromFile("../img/restart.png");
-	menuBackground.loadFromFile("../img/back.jpg");
+	menuTexturePlay.loadFromFile(PLAY_IMG_PATH);
+	menuTextureAbout.loadFromFile(ABOUT_IMG_PATH);
+	menuTextureExit.loadFromFile(EXIT_IMG_PATH);
+	menuTextureRestart.loadFromFile(RESTART_IMG_PATH);
+	menuBackground.loadFromFile(BG_IMG_PATH);
 
 	//Главные кнопки
 	Sprite menuPlay(menuTexturePlay), menuAbout(menuTextureAbout), menuExit(menuTextureExit), menuRestart(menuTextureRestart), about(aboutTexture), menuBg(menuBackground);

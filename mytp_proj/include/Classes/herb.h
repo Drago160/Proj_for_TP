@@ -13,6 +13,5 @@ class Herbivor: virtual public Unit
 		void FindDirection(std::vector<Food*>& Food_list);
 		void EatNear();
 		void Update(std::vector<Food*>&);
-		std::string GetClassName() const;
 		Herbivor* Born();	
 };

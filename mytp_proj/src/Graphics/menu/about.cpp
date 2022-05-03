@@ -1,17 +1,15 @@
 #include"about.h"
+#include"SETTINGS.h"
 
 //Рисуем окно about
 void _about(sf::RenderWindow& window, bool& isMenu)
 {
 	sf::Font font;
-	font.loadFromFile("../fonts/main_font.ttf");
-	sf::Text text("", font, 40);
+	font.loadFromFile(ABOUT_FONT_PATH);
+	sf::Text text("", font, ABOUT_FONT_SIZE);
 	text.setFillColor(sf::Color::Black);
-	text.setPosition(100, 100);
-	text.setString
-	(
-		"Click ESC to return into main menu\nYou can create new Herbivors(LMB) and Predators(RMB)\nThe main goal is to create stable system\nMB it is Impossible\nHave a nice game"
-	);
+	text.setPosition(ABOUT_TEXT_POSITION_X, ABOUT_TEXT_POSITION_Y);
+	text.setString(ABOUT_INFO);
 	
 	while(!sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && isMenu)
 	{	

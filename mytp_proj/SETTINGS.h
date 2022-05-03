@@ -1,4 +1,5 @@
 #pragma once
+#include<string>
 
 //COMMON
 const int WEIGHT = 65; //80
@@ -68,7 +69,19 @@ const int SCORE_FONT_SIZE = 35;
 //MENU
 const int StartHeight = 50;
 const int DHeight = 210;
+const std::string PLAY_IMG_PATH = "../img/play.png";
+const std::string ABOUT_IMG_PATH = "../img/about.png";
+const std::string EXIT_IMG_PATH = "../img/exit.png";
+const std::string RESTART_IMG_PATH = "../img/restart.png";
+const std::string BG_IMG_PATH = "../img/back.jpg";
+
 
 
 //ABOUT
 const int ABOUT_R = 129, ABOUT_G = 181, ABOUT_B = 221;
+const int ABOUT_TEXT_POSITION_X = 100;
+const int ABOUT_TEXT_POSITION_Y = 100;
+const int ABOUT_FONT_SIZE = 40;
+const std::string ABOUT_INFO = "Click ESC to return into main menu\nYou can create new Herbivors(LMB), Predators(RMB) and Omnivors(click on mouse wheel)\nThe main goal is to create stable system\nMB it is Impossible\nHave a nice game";
+const std::string ABOUT_FONT_PATH = ("../fonts/main_font.ttf");
+
