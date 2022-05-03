@@ -64,6 +64,7 @@ Herbivor* Herbivor:: Born()
 	v = Maxmin(v, 100, 10);
 	w = Maxmin(w, 300, 12);
 	var = Maxmin(var, 12, 1);
+
 	Herbivor* h = new Herbivor(w, v, var, Col, {x, y});
 	return h;
 }

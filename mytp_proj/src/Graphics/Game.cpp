@@ -82,7 +82,6 @@ void Game::start()
 	text1.setPosition(WINDOW_HEIGHT - 200, 50);
 	text2.setPosition(WINDOW_HEIGHT - 200, 80);
 	
-
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -93,6 +92,7 @@ void Game::start()
 			if(event.type == sf::Event::KeyPressed)
 				if (event.key.code == sf::Keyboard::Escape)
 					menu(window);
+
 			if (event.type == sf::Event::MouseButtonPressed)
 			{
 				if (event.mouseButton.button == sf::Mouse::Right)
@@ -127,6 +127,7 @@ void Game::start()
 		
 		control(herbivors);
 		control_pred(predators);
+
 		for(const auto& h: herbivors)
 		{
 			window.draw(*(h->shape));	

@@ -10,7 +10,7 @@
 Predator::Predator(const int& my_weight, const int& my_speed, const int& my_variability, const _Color& my_color, const Cord& my_position):Unit(my_weight, my_speed, my_variability, my_color, my_position)
 {
         classname = "predator";
-	reduce_power *= REDUCE_PRED_KOOF;
+	      reduce_power *= REDUCE_PRED_KOOF;
 }
 
 

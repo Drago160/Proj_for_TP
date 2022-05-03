@@ -10,12 +10,14 @@ const float ENERGY_KOOF = 0.0025; //0.0025
 
 //HERBIVORS
 
+
 const float REDUCE_HERB_KOOF = 1;
 
 //PREDATORS
 
 
 const float REDUCE_PRED_KOOF = 3;
+
 
 
 //FOOD
