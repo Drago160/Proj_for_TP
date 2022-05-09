@@ -3,6 +3,8 @@
 #include"herb.h"
 #include"Food.h"
 #include"pred.h"
+#include"SETTINGS.h"
+
 void control(std::vector<Herbivor*> &herbivors);
 void control_pred(std::vector<Predator*>& predators);
 

@@ -9,7 +9,6 @@ Food::Food(const int& _x, const int& _y)
 	shape = new sf::CircleShape(FOOD_SIZE, 8);
 	shape->setPosition(x, y);
 	shape->setFillColor(sf::Color(206, 255, 29));
-	//shape->setFillColor(sf::Color(random(254), random(254), random(254)));
 
 }
 

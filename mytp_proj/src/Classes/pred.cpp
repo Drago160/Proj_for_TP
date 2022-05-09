@@ -10,6 +10,7 @@
 Predator::Predator(const int& my_weight, const int& my_speed, const int& my_variability, const _Color& my_color, const Cord& my_position):Unit(my_weight, my_speed, my_variability, my_color, my_position)
 {
         classname = "predator";
+	      reduce_power *= REDUCE_PRED_KOOF;
 }
 
 
@@ -62,10 +63,4 @@ Predator* Predator:: Born()
         var = Maxmin(var, 12, 1);
         Predator* h = new Predator(w, v, var, Col, {x, y});
         return h;
-}
-
-
-void Predator::SetReducePower()
-{
-	reduce_power = (int)weight * speed * speed * ENERGY_KOOF * 10;	
 }

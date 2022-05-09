@@ -1,5 +1,7 @@
 #include"Game.h"
+#include"score.h"
 #include"sfml.h"
+#include"menu.h"
 #include"SETTINGS.h"
 #include<unistd.h>
 #include<chrono>
@@ -9,6 +11,8 @@
 #include<cmath>
 #include"pred.h"
 #include<iostream>
+#include<sstream>
+
 void control(std::vector<Herbivor*> &herbivors)
 {
 	for (int i = 0; i < herbivors.size(); i++)
@@ -58,13 +62,25 @@ Game::Game()
 
 void Game::start()
 {
+
 	sf::Clock clock;
+
        	Herbivor* h = new Herbivor(WEIGHT, SPEED, 6, {0, 155, 255}, {(int)(WINDOW_HEIGHT/1), (int)(WINDOW_WEIGHT/1)});
 
 	Predator* q = new Predator(WEIGHT, SPEED, 6, {250, 0, 0}, {(int)(WINDOW_HEIGHT/4), (int)(WINDOW_WEIGHT/4)});
-
 	predators.push_back(q);
 	herbivors.push_back(h);
+
+	menu(window);	
+	
+	sf::Font font;
+	font.loadFromFile("../fonts/main_font.ttf");
+	sf::Text text1("", font, 30);
+	sf::Text text2("", font, 30);
+	text1.setFillColor(sf::Color::Blue);
+	text2.setFillColor(sf::Color::Red);
+	text1.setPosition(WINDOW_HEIGHT - 200, 50);
+	text2.setPosition(WINDOW_HEIGHT - 200, 80);
 	
 	while (window.isOpen())
 	{
@@ -73,6 +89,9 @@ void Game::start()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			if(event.type == sf::Event::KeyPressed)
+				if (event.key.code == sf::Keyboard::Escape)
+					menu(window);
 
 			if (event.type == sf::Event::MouseButtonPressed)
 			{
@@ -122,6 +141,14 @@ void Game::start()
 		{
 			window.draw(*(f->shape));
 		}
+
+
+
+		score(window, "herbivors: ", text1, herbivors.size());		
+		score(window, "predators: ", text2, predators.size());
+
+
+
 		window.display();
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(SLIDES_PERIOD));
@@ -129,7 +156,6 @@ void Game::start()
 		{
 			for(int i = 0; i < FOOD_AMOUNT; i++)
 			{	
-				//Food * f = new Food(random(WINDOW_HEIGHT), random(WINDOW_WEIGHT));
 				foods.push_back(new Food(random(WINDOW_HEIGHT), random(WINDOW_WEIGHT)));
 			}
 			
