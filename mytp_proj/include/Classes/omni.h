@@ -13,4 +13,3 @@ class Omnivor:public Predator, public Herbivor
                 void Update(std::vector<Food*>&, std::vector<Herbivor*>&);
                 Omnivor* Born();
 };
-
