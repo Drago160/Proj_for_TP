@@ -6,11 +6,15 @@
 #include<cmath>
 #include<iostream>
 
+Predator::Predator(const Cord& my_position):Unit("predator", my_position)
+{
+	reduce_power *= REDUCE_PRED_KOOF;
+}
+
 
 Predator::Predator(const int& my_weight, const int& my_speed, const int& my_variability, const _Color& my_color, const Cord& my_position):Unit(my_weight, my_speed, my_variability, my_color, my_position)
 {
-        classname = "predator";
-	      reduce_power *= REDUCE_PRED_KOOF;
+	reduce_power *= REDUCE_PRED_KOOF;
 }
 
 
@@ -21,14 +25,14 @@ void Predator::FindDirection(std::vector<Herbivor*>& Herb_list)
         if (num_of_nearest == -1)
         {
  		direction = {0, 0};
-                UpdateEnergy(-reduce_power);
+                //UpdateEnergy(-reduce_power);
                 return;
         }
 
         Herbivor* nearest_herb = Herb_list[num_of_nearest];
 
 
-        if (pow(nearest_herb->GetPosition().X - position.X, 2) + pow(nearest_herb->GetPosition().Y - position.Y, 2) < pow(weight/6, 2))
+        if (pow(nearest_herb->GetPosition().X - position.X, 2) + pow(nearest_herb->GetPosition().Y - position.Y, 2) < pow(weight/2, 2))
         {
 		int E = nearest_herb->GetEnergy();
                 Herb_list.erase(Herb_list.begin()+num_of_nearest);
@@ -42,9 +46,18 @@ void Predator::FindDirection(std::vector<Herbivor*>& Herb_list)
         float r = sqrt(pow(nearest_herb->GetPosition().X - position.X, 2) + pow(nearest_herb->GetPosition().Y - position.Y, 2));
         float x = nearest_herb->GetPosition().X - position.X;
         float y = nearest_herb->GetPosition().Y - position.Y;
-        direction = {x/r, y/r};
-        Step();
+	struct Direction d = {x/r, y/r};
+        direction = d;//Round_to(direction, d, 1);
 }
+
+void Predator:: Update(std::vector<Herbivor*>& herbivors)
+{
+	FindDirection(herbivors);
+	Step();
+}
+
+
+
 
 Predator* Predator:: Born()
 {

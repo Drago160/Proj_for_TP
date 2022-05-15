@@ -2,7 +2,31 @@ cmake_minimum_required(VERSION 3.6)
 
 project(Classes)
 
-set(SOURCE_LIB Graphics/Game.cpp Classes/Units.cpp Classes/herb.cpp Classes/Food.cpp Classes/pred.cpp Tools/find_nearest.cpp Tools/find_nearest_herb.cpp Tools/random.cpp) 
+add_subdirectory(Tools/math)
+
+set(SOURCE_LIB
+
+	Graphics/menu/about.cpp
+	Graphics/menu/menu.cpp
+
+       	Graphics/Drawer.cpp 
+	Graphics/score.cpp
+	
+	Game/Game.cpp	
+
+	Control/Updater.cpp
+	Control/Controller.cpp
+	Control/FoodSpamer.cpp 
+
+	Classes/Units.cpp
+	Classes/herb.cpp
+	Classes/Food.cpp
+       	Classes/pred.cpp
+	Classes/omni.cpp
+
+	Tools/find_nearest.cpp
+	Tools/find_nearest_herb.cpp
+) 
 
 add_library(Sec SHARED ${SOURCE_LIB})
 
@@ -12,3 +36,4 @@ set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_LIST_DIR}/cmake_modu
 target_link_libraries(Sec sfml-graphics)
 find_package(SFML 2.5 REQUIRED graphics network audio window system)
 ##################
+target_link_libraries(Sec Math)

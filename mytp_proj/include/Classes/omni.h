@@ -1,13 +1,15 @@
-#include"Units.h"
+#pragma once
+#include"herb.h"
+#include"pred.h"
+#include"Food.h"
 
 
-class Omnivor: public Predator, public Herbivor
+class Omnivor:public Predator, public Herbivor 
 {
-	public:
-		Omnivor(const int& weight, const int& speed, const int& variability, Color my_color, Cord my_position, const int& my_gen)
-		void find_direction();
-		void eat_near();
-	private:
-		int predator_gen;
-		string classname;
+        public:
+                Omnivor(const int& my_weight, const int& my_speed, const int& my_variability, const _Color& my_color, const Cord& my_position);
+		Omnivor(const Cord& my_position);
+                void FindDirection(std::vector<Food*>&, std::vector<Herbivor*>&);
+                void Update(std::vector<Food*>&, std::vector<Herbivor*>&);
+                Omnivor* Born();
 };

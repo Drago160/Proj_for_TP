@@ -15,12 +15,19 @@ add_executable(SIM ${CMAKE_SOURCE_DIR}/main/main.cpp)
 ###########################
 
 
-include_directories(include/Graphics include/Tools . include/Classes)#headers
+include_directories(
+	include/Control
+	include/Graphics/menu
+       	include/Graphics
+	include/Tools 
+	include/Classes
+	include/Game
+	.
+)#headers
 
 add_subdirectory(src)
 
 target_link_libraries(SIM Sec)
-
 
 
 

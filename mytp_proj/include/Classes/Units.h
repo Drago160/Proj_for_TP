@@ -1,11 +1,14 @@
+#pragma once
 #include"tools.h"
 #include"sfml.h"
 #include"random.h"
+#include<string>
 
 class Unit
 {
 	public:
-		Unit(const int& weight, const int& speed, const int& variability,const _Color& my_color,const Cord& my_position);
+		Unit(const int& weight, const int& speed, const int& variability, const _Color& color, const Cord& position);
+		Unit(const std::string&, const Cord&);
 		int GetWeight() const;
 		void SetEnergy();
 		int GetEnergy() const;
@@ -23,7 +26,7 @@ class Unit
 		int energy = ENERGY;
 		Direction direction = {0, 0};
 		int reduce_power;
-		Cord position = {-100, -100};
+		Cord position = {0, 0};
 		int variability;
 	public:
 		sf::CircleShape* shape;

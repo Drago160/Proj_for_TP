@@ -2,12 +2,12 @@
 #include"SETTINGS.h"
 #include"sfml.h"
 #include"random.h"
-Food::Food(const int& _x, const int& _y)
+
+Food::Food(int _x, int _y)
 {
-	x = _x;
-	y = _y;
+	position = {_x, _y};
 	shape = new sf::CircleShape(FOOD_SIZE, 8);
-	shape->setPosition(x, y);
+	shape->setPosition(_x, _y);
 	shape->setFillColor(sf::Color(206, 255, 29));
 
 }

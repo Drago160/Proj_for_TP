@@ -2,6 +2,40 @@
 #include"Units.h"
 #include<iostream>
 
+Unit::Unit(const std::string& classname, const Cord& my_position)
+{
+	int R, G, B;
+	if (classname == "herbivor")
+	{
+		R = H_R;
+		G = H_G;
+		B = H_B;
+	}
+	else 
+	if (classname == "predator")
+	{
+		R = P_R;
+		G = P_G;
+		B = P_B;
+	}
+	else
+	if (classname == "omnivor")
+	{
+		R = O_R;
+		G = O_G;
+		B = O_B; 
+	}
+	weight = WEIGHT;
+	speed = SPEED;
+	color = {R, G, B};
+	variability = VARIABILITY;
+	position = my_position;
+	SetEnergy();
+	SetReducePower();
+	shape = new sf::CircleShape(weight/5);
+	shape->setPosition(position.X - weight/10, position.Y - weight/10);
+	shape->setFillColor(sf::Color(color.R, color.G, color.B));
+}
 
 Unit::Unit(const int& my_weight, const int& my_speed, const int& my_variability, const _Color& my_color, const Cord& my_position)
 {
@@ -13,7 +47,7 @@ Unit::Unit(const int& my_weight, const int& my_speed, const int& my_variability,
 	SetEnergy();
 	SetReducePower();
 	shape = new sf::CircleShape(weight/5);
-	shape->setPosition(position.X, position.Y);
+	shape->setPosition(position.X - weight/10, position.Y - weight/10);
 	shape->setFillColor(sf::Color(color.R, color.G, color.B));
 }
 
@@ -59,10 +93,13 @@ void Unit::Die()
 
 void Unit::Step()
 {
-	position = {(int)(position.X + speed*0.2*direction.X), (int)(position.Y + speed*0.2*direction.Y)};
+	int dX = (int)speed*0.2*direction.X;
+	int dY = (int)speed*0.2*direction.Y;
+	position = {position.X + dX, position.Y + dY};
 	energy -= reduce_power;
-	shape->setPosition(position.X, position.Y);
+	shape->setPosition(position.X - weight/10, position.Y - weight/10);
 }
+
 
 Unit::~Unit()
 {

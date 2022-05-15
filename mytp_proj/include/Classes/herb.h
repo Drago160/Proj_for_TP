@@ -4,14 +4,14 @@
 #include"random.h"
 #include"tools.h"
 #include"find_nearest.h"
-class Herbivor: public Unit 
+
+class Herbivor: virtual public Unit 
 {
 	public:
 		Herbivor(const int& my_weight, const int& my_speed, const int& my_variability, const _Color& my_color, const Cord& my_position);
+		Herbivor(const Cord& my_position);
 		void FindDirection(std::vector<Food*>& Food_list);
 		void EatNear();
-		std::string GetClassName() const;
+		void Update(std::vector<Food*>&);
 		Herbivor* Born();	
-	protected:
-		std::string classname; 
 };

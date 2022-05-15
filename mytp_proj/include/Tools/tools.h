@@ -1,9 +1,10 @@
 #pragma once
+
 #include<string>
 #include<vector>
 #include"SETTINGS.h"
 #include"random.h"
-#include"Food.h"
+#include<cmath>
 
 struct _Color
 {
@@ -18,23 +19,13 @@ struct Direction
 	float Y;
 };
 
-class Cord
+
+struct Direction Round_to(struct Direction, struct Direction, float delta);
+
+struct Cord
 {
-	public:
-		Cord(int x, int y)
-		{
-			X = x;
-			Y = y;
-		}
-		int X;
-		int Y;
+	int X;
+	int Y;
 };
-
-/*
-int find_nearest_food(const Cord& self_pos, const std::vector<Food*>&, const int& vision_Radius);
-
-int find_nearest_herb(const Cord& self_pos, const std::vector<Herbivor*>&, const int vision_Radius)
-*/
-
 
 int Maxmin(const int& N, const int& M, const int& m);
