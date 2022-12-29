@@ -1,6 +1,7 @@
 #pragma once
 #include"sfml.h"
 #include"tools.h"
+
 class Food
 {
 public:

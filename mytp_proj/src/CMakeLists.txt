@@ -31,9 +31,10 @@ set(SOURCE_LIB
 add_library(Sec SHARED ${SOURCE_LIB})
 
 #SFML#############
-set(SFML_DIR "${CMAKE_SOURCE_DIR}/SFML_LIB/SFML-2.5.1/lib/cmake/SFML")
-set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
-target_link_libraries(Sec sfml-graphics)
-find_package(SFML 2.5 REQUIRED graphics network audio window system)
+#set(SFML_DIR "${CMAKE_SOURCE_DIR}/SFML_LIB/SFML-2.5.1/lib/cmake/SFML")
+#set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
+#target_link_libraries(Sec sfml-graphics)
+#find_package(SFML 2.5 REQUIRED graphics network audio window system)
 ##################
 target_link_libraries(Sec Math)
+target_link_libraries(Sec -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-network -lsfml-system)
